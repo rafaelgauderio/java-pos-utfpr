@@ -18,20 +18,34 @@ public class TestLocacao {
 		Cidade cid = new Cidade();
 		cid.setCodCid(200);
 		cid.setNomeCid("Porto Alegre");
+		
+		Cidade cid02 = new Cidade();
+		cid02.setCodCid(300);
+		cid02.setNomeCid("Canoas");
 
-		Endereco end = new Endereco();
-		end.setRua("Rua Asssis Brasil");
-		end.setNum(209);
+		Endereco endImo = new Endereco();
+		endImo.setRua("Rua Asssis Brasil");
+		endImo.setNum(209);
+		endImo.setCidade(cid02);
 
-		Imovel imo = new Imovel();
-		imo.setTipoMaterial("Madeira");
-		imo.setValAluguel(500);
+		Endereco endPro = new Endereco();
+		endPro.setRua("Avenida Sertório");
+		endPro.setNum(68);
+		endPro.setCidade(cid);
 
 		Proprietario pro = new Proprietario();
 		pro.setCpfProp(621333333);
 		pro.setNomeProp("Rafael de Luca");
+		pro.setEndereco(endPro);
+
+		Imovel imo = new Imovel();
+		imo.setTipoMaterial("Madeira");
+		imo.setValAluguel(500);
+		imo.setProprietario(pro);
+		imo.setEndereco(endImo);
 
 		Locacao loc = new Locacao();
+		loc.setImovel(imo);
 		try {
 			loc.setDataInicio(formato.parse("10/12/2023"));
 			loc.setDataFim(formato.parse("17/12/2023"));
@@ -41,10 +55,10 @@ public class TestLocacao {
 			e.printStackTrace();
 		}
 
-		System.out.println(cid);
-		System.out.println(end);
-		System.out.println(imo);
-		System.out.println(pro);
+		// System.out.println(cid);
+		// System.out.println(end);
+		// System.out.println(imo);
+		// System.out.println(pro);
 		System.out.println(loc);
 
 	}

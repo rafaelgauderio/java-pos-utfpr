@@ -4,6 +4,7 @@ public class Endereco {
 
 	private String rua = "";
 	private int num = 0;
+	private Cidade cidade = new Cidade ();
 
 	public String getRua() {
 		return rua;
@@ -19,11 +20,19 @@ public class Endereco {
 
 	public void setNum(int num) {
 		this.num = num;
+	}	
+
+	public Cidade getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(Cidade cidade) {
+		this.cidade = cidade;
 	}
 
 	@Override
 	public String toString() {
-		return "Endereço [Rua= " + rua + ", número= " + num + "]";
+		return "[Rua= " + rua + ", número= " + num + cidade +"]";
 	}
 
 }

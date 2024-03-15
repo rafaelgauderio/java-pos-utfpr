@@ -1,11 +1,10 @@
 package atividade02.entities;
 
-import java.text.NumberFormat;
-
-public class Proprietario {	
+public class Proprietario {
 
 	private int cpfProp = 0;
 	private String nomeProp = "";
+	private Endereco endereco = new Endereco();
 
 	public int getCpfProp() {
 		return cpfProp;
@@ -22,11 +21,18 @@ public class Proprietario {
 	public void setNomeProp(String nomeProp) {
 		this.nomeProp = nomeProp;
 	}
-		
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
 
 	@Override
 	public String toString() {
-		return "Proprietario [cpf do Proprietário= " + cpfProp + ", nome do Proprietário= " + nomeProp
+		return "\n\tProprietario [cpf do Proprietário= " + cpfProp + ", nome do Proprietário= " + nomeProp + "\n\tendereço do proprietário " + endereco
 				+ "]";
 	}
 

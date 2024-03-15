@@ -23,7 +23,7 @@ public class Cidade {
 
 	@Override
 	public String toString() {
-		return "Cidade [código da Cidade= " + codCid + ", nome da Cidade= " + nomeCid + "]";
+		return ", Cidade [código da Cidade= " + codCid + ", nome da Cidade= " + nomeCid + "]";
 	}
 
 }

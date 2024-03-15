@@ -6,6 +6,7 @@ public class Locacao {
 
 	private Date dataInicio = new Date();
 	private Date dataFim = new Date();
+	private Imovel imovel = new Imovel();
 
 	public Date getDataInicio() {
 		return dataInicio;
@@ -23,10 +24,18 @@ public class Locacao {
 		this.dataFim = dataFim;
 	}
 
+	public Imovel getImovel() {
+		return imovel;
+	}
+
+	public void setImovel(Imovel imovel) {
+		this.imovel = imovel;
+	}
+
 	@Override
 	public String toString() {
-		return "Locacao [data de ínicio da locação= " + dataInicio.toLocaleString().substring(0, 18)
-				+ ", data de fim da locação= " + dataFim.toLocaleString().substring(0, 18) + "]";
+		return "Locação [data de ínicio da locação= " + dataInicio.toLocaleString().substring(0, 18)
+				+ ", data de fim da locação= " + dataFim.toLocaleString().substring(0, 18) + imovel + "]";
 	}
 
 }
