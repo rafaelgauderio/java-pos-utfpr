@@ -4,12 +4,15 @@ public final class Passeio extends Veiculo {
 
 	private int qtdPassageiros;
 
-	public Passeio() {
+	public Passeio() {	
+		super();		
 		this.qtdPassageiros = 0;
 	}
-
-	public Passeio(String placa, String marca, String modelo, String cor, float velocMax, int qdtRodas, Motor motor) {
-		super(placa, marca, modelo, cor, velocMax, qdtRodas, motor);
+	
+	public Passeio(String placa, String marca, String modelo, String cor, float velocMax, int qdtRodas, int qtdPistao,
+			int potencia, int qtdPassageiros) {
+		super(placa, marca, modelo, cor, velocMax, qdtRodas, qtdPistao, potencia);
+		this.qtdPassageiros = qtdPassageiros;
 	}
 
 	public int getQtdPassageiros() {

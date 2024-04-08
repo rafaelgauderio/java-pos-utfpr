@@ -21,7 +21,7 @@ public abstract class Veiculo {
 		this.motor = new Motor ();
 	}	
 
-	public Veiculo(String placa, String marca, String modelo, String cor, float velocMax, int qdtRodas, Motor motor) {
+	public Veiculo(String placa, String marca, String modelo, String cor, float velocMax, int qdtRodas, int qtdPistao, int potencia) {
 		
 		this.placa = placa;
 		this.marca = marca;
@@ -29,7 +29,7 @@ public abstract class Veiculo {
 		this.cor = cor;
 		this.velocMax = velocMax;
 		this.qdtRodas = qdtRodas;
-		this.motor =motor;
+		this.motor = new Motor(qtdPistao, potencia);
 	}
 
 
