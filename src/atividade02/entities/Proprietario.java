@@ -1,7 +1,8 @@
 package atividade02.entities;
 
-public class Proprietario {
 
+public class Proprietario {	
+	
 	private int cpfProp = 0;
 	private String nomeProp = "";
 	private Endereco endereco = new Endereco();
@@ -10,7 +11,7 @@ public class Proprietario {
 		return cpfProp;
 	}
 
-	public void setCpfProp(int cpfProp) {
+	public void setCpfProp(int cpfProp) {		
 		this.cpfProp = cpfProp;
 	}
 
