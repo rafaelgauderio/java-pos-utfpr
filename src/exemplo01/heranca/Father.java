@@ -33,7 +33,7 @@ public class Father extends Parents {
 				+ "\nfather id: " + this.getParentsId() 
 				+ "\nfather name: " + this.getParentsName()
 				+ "\nfather id fixed: " + String.format("%d", this.calcId())
-				+ "\nfather son큦 id:" + this.getParentsSon().getSonId()
+				+ "\nfather son큦 id: " + this.getParentsSon().getSonId()
 				+ "\nfather son큦 name: " +  this.getParentsSon().getSonName()
 				+ "\nfather pant큦 color: " + this.getPantsColor() + "\n";				
 	}

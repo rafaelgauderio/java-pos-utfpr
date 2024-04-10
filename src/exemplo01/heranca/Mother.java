@@ -33,7 +33,7 @@ public class Mother extends Parents {
 		sb.append("\nmother id: " + this.getParentsId());
 		sb.append("\nmother name: " + this.getParentsName());
 		sb.append("\nmother id fixed: " + String.format("%d", this.calcId()));
-		sb.append("mother son큦 id: " + this.getParentsSon().getSonId());
+		sb.append("\nmother son큦 id: " + this.getParentsSon().getSonId());
 		sb.append("\nmother son큦 name: " + this.getParentsSon().getSonName());
 		sb.append("\nmother dress큦 color: " + this.getDressColor() + "\n");
 		return sb.toString();
