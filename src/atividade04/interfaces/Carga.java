@@ -52,6 +52,7 @@ public final class Carga extends Veiculo implements Calcular {
 				+ "\nPotência do Motor: " + this.getMotor().getPotencia()
 				+ "\nCarga máxima: " + this.cargaMax
 				+ "\nTara: " + this.tara
+				+ "\nValor calculado Interface: " + this.calcular()
 				+ "\n==========================================";
 	}
 
