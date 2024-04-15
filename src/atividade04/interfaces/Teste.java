@@ -11,13 +11,18 @@ public class Teste {
 		Scanner sc = new Scanner(System.in);
 
 		int opcao = 0;
-		String placaPasseio = null;
+		String placaPasseio = null, placaCarga = null;
 
 		Passeio[] vetorPasseio = new Passeio[5];
 		Carga[] vetorCarga = new Carga[5];
 
 		do {
 			try {
+				try {
+					Thread.sleep(500);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 				menuInicial();
 				opcao = Integer.parseInt(sc.nextLine());
 				switch (opcao) {
@@ -38,7 +43,7 @@ public class Teste {
 					imprimirVeiculoPasseioPorPlaca(vetorPasseio, placaPasseio);
 					break;
 				case 6:
-					imprimirVeiculoCargaPorPlaca();
+					imprimirVeiculoCargaPorPlaca(vetorCarga, placaCarga);
 					break;
 				case 7:
 					System.out.println("\nSISTEMA ENCERRADO");
@@ -63,7 +68,7 @@ public class Teste {
 		System.out.print("\nSistema de Gestão de Veículos - Menu Inicial" + "\n1. Cadastrar Veiculo de Passeio"
 				+ "\n2. Cadastrar Veiculo de Carga" + "\n3. Imprimir Todos os Veiculos de Passeio"
 				+ "\n4. Imprimir Todos os Veiculos de Carga" + "\n5. Imprimir Veiculo de Passeio pela Placa"
-				+ "\n6. Imprimir Veiculo de Carga pela Placa" + "\n7. Sair do Sistema\n\n"
+				+ "\n6. Imprimir Veiculo de Carga pela Placa" + "\n7. Sair do Sistema\n"
 				+ "----------------------------------------" + "\nDigite um das opcoes acima: ");
 
 	}
@@ -116,7 +121,7 @@ public class Teste {
 
 			}
 
-			System.out.print("Deseja cadastrar mais um veículo de passeio (S / N)? ");
+			System.out.print("Deseja cadastrar mais um veículo de passeio (S/N)? ");
 			char cadastrar = 'N';
 			cadastrar = input.next().charAt(0);
 			if (cadastrar == 'S' || cadastrar == 's') {
@@ -174,7 +179,7 @@ public class Teste {
 
 			}
 
-			System.out.print("Deseja cadastrar mais um veículo de carga (S / N)? ");
+			System.out.print("Deseja cadastrar mais um veículo de carga (S/N)? ");
 			char cadastrar = 'N';
 			cadastrar = input.next().charAt(0);
 			if (cadastrar == 'S' || cadastrar == 's') {
@@ -191,7 +196,7 @@ public class Teste {
 		boolean empty = true;
 		for (i = 0; vetorPasseio.length > i; i++) {
 			if (vetorPasseio[i] != null) {
-				System.out.println("\nVeículo de indíce: " + (i + 1) + vetorPasseio[i]);
+				System.out.println("Veículo de indíce: " + (i + 1) + vetorPasseio[i]);
 				empty = false;
 			}
 		}
@@ -207,7 +212,7 @@ public class Teste {
 		boolean empty = true;
 		for (i = 0; vetorCarga.length > i; i++) {
 			if (vetorCarga[i] != null) {
-				System.out.println("\nVeículo de indíce: " + (i + 1) + vetorCarga[i]);
+				System.out.println("Veículo de indíce: " + (i + 1) + vetorCarga[i]);
 				empty = false;
 			}
 		}
@@ -236,8 +241,23 @@ public class Teste {
 
 	}
 
-	public static void imprimirVeiculoCargaPorPlaca() {
-		System.out.println("\nImprimindo veículo de carga por placa");
+	public static void imprimirVeiculoCargaPorPlaca(Carga[] vetorCarga, String placaCarga) {
+		System.out.print("\nInforme a placa do veículo que deseja pesquisar: ");
+		Scanner input = new Scanner(System.in);
+		placaCarga = input.nextLine();
+		boolean findPlaca = false;
+		for (int i = 0; vetorCarga.length > i; i++) {
+			if (vetorCarga[i] != null) {
+				if (vetorCarga[i].getPlaca().equalsIgnoreCase(placaCarga)) {
+					System.out.println(vetorCarga[i]);
+					findPlaca = true;
+					break;
+				}
+			}
+		}
+		if (findPlaca == false) {
+			System.out.println("Não existe veículo de CARGA com a placa: " + placaCarga);
+		}
 	}
 
 }
