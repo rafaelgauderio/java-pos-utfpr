@@ -15,7 +15,7 @@ public final class Passeio extends Veiculo implements Calcular{
 		this.qtdPassageiros = qtdPassageiros;
 	}
 
-	public int getQtdPassageiros() {
+	public final int getQtdPassageiros() {
 		return qtdPassageiros;
 	}
 
@@ -24,12 +24,12 @@ public final class Passeio extends Veiculo implements Calcular{
 	}
 
 	@Override
-	public float calcVel(float velocNax) {
+	public final float calcVel(float velocNax) {
 		return this.getVelocMax() * 1000;
 	}
 	
 	@Override
-	public String toString () {
+	public final String toString () {
 		return "\n=========== VEÍCULO DE PASSEIO ==========="
 				+ "\nMarca: " + this.getMarca() 
 				+ "\nModelo: " + this.getModelo()
@@ -45,7 +45,7 @@ public final class Passeio extends Veiculo implements Calcular{
 	}
 
 	@Override
-	public int calcular() {
+	public final int calcular() {
 		return this.getMarca().length() + this.getModelo().length() + this.getPlaca().length() + this.getCor().length();
 		
 	}

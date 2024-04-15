@@ -18,7 +18,7 @@ public final class Carga extends Veiculo implements Calcular {
 		this.tara = tara;
 	}
 
-	public int getCargaMax() {
+	public final int getCargaMax() {
 		return cargaMax;
 	}
 
@@ -26,7 +26,7 @@ public final class Carga extends Veiculo implements Calcular {
 		this.cargaMax = cargaMax;
 	}
 
-	public int getTara() {
+	public final int getTara() {
 		return tara;
 	}
 
@@ -35,12 +35,12 @@ public final class Carga extends Veiculo implements Calcular {
 	}
 
 	@Override
-	public float calcVel(float velocMax) {
+	public final float calcVel(float velocMax) {
 		return velocMax * 100000;
 
 	}
 
-	public String toString() {
+	public final String toString() {
 		return "\n=========== VEÍCULO DE CARGA ==========="
 				+ "\nMarca: " + this.getMarca()
 				+ "\nModelo: "+ this.getModelo()
@@ -57,7 +57,7 @@ public final class Carga extends Veiculo implements Calcular {
 	}
 
 	@Override
-	public int calcular() {
+	public final int calcular() {
 		return this.cargaMax + this.tara + this.getQdtRodas() + (int)this.getVelocMax() + this.getMotor().getPotencia() + this.getMotor().getQtdPist();
 	}
 
