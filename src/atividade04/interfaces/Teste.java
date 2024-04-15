@@ -13,6 +13,7 @@ public class Teste {
 		int opcao = 0;
 
 		Passeio[] vetorPasseio = new Passeio[5];
+		Carga[] vetorCarga = new Carga[5];
 
 		do {
 			try {
@@ -23,13 +24,13 @@ public class Teste {
 					cadastrarVeiculoPasseio(vetorPasseio);
 					break;
 				case 2:
-					cadastrarVeiculoCarga();
+					cadastrarVeiculoCarga(vetorCarga);
 					break;
 				case 3:
 					imprimirVeiculosPasseio(vetorPasseio);
 					break;
 				case 4:
-					imprimirVeiculosCarga();
+					imprimirVeiculosCarga(vetorCarga);
 					break;
 
 				case 5:
@@ -70,7 +71,7 @@ public class Teste {
 
 		if (vetorPasseio[4] != null) {
 			System.out.println(
-					"O vetor de de veículos de passeio já está cheio. Não tem mais como cadastrar veículos novos!\n");
+					"O vetor de veículos de PASSEIO já está cheio. Não tem mais como cadastrar novos veículos de passeio!\n");
 		} else {
 			Scanner input = new Scanner(System.in);
 			Passeio p1 = new Passeio();
@@ -83,8 +84,8 @@ public class Teste {
 				if (vetorPasseio[index] != null) {
 					if (vetorPasseio[index].getPlaca().equalsIgnoreCase(placaTentativa)) {
 						System.out.println("==================ATENÇÃO====================\n"
-								+ "Já existe um veículo de passeio com a placa: " + placaTentativa + ", informe outra placa!"
-								+ "\n=============================================\n");
+								+ "Já existe um veículo de passeio com a placa: " + placaTentativa
+								+ ", informe outra placa!" + "\n=============================================\n");
 						break;
 					}
 				} else {
@@ -110,8 +111,8 @@ public class Teste {
 					vetorPasseio[index] = p1;
 					System.out.println("Veículo de passeio cadastrado com sucesso!\n");
 					break;
-
 				}
+
 			}
 
 			System.out.print("Deseja cadastrar mais um veículo de passeio (S / N)? ");
@@ -125,8 +126,62 @@ public class Teste {
 
 	}
 
-	public static void cadastrarVeiculoCarga() {
-		System.out.println("\nCadastrando um Veiculo de Carga");
+	public static void cadastrarVeiculoCarga(Carga[] vetorCarga) {
+		if (vetorCarga[4] != null) {
+			System.out.println(
+					"O vetor de veículos de CARGA já está cheio. Não tem mais como cadastrar novos veículos de carga!\n");
+		} else {
+			Scanner input = new Scanner(System.in);
+			Carga c1 = new Carga();
+			System.out.println("===================CADASTRO DE VEÍCULO DE CARGA=====================\n"
+					+ "Insira os dados e valores solicitados abaixo\n"
+					+ "======================================================================");
+			System.out.print("Placa: ");
+			String placaTentativa = input.nextLine();
+			for (int index = 0; vetorCarga.length > index; index++) {
+				if (vetorCarga[index] != null) {
+					if (vetorCarga[index].getPlaca().equalsIgnoreCase(placaTentativa)) {
+						System.out.println("==================ATENÇÃO====================\n"
+								+ "Já existe um veículo de carga com a placa: " + placaTentativa
+								+ ", informe outra placa!" + "\n=============================================\n");
+						break;
+					}
+				} else {
+					c1.setPlaca(placaTentativa);
+					System.out.print("Marca: ");
+					c1.setMarca(input.nextLine());
+					System.out.print("Modelo: ");
+					c1.setModelo(input.nextLine());
+					System.out.print("Cor: ");
+					c1.setCor(input.nextLine());
+					System.out.print("Quantidade de Rodas: ");
+					c1.setQdtRodas(input.nextInt());
+					System.out.print("Carga Máxima: ");
+					c1.setCargaMax(input.nextInt());
+					System.out.print("Tara: ");
+					c1.setTara(input.nextInt());
+					System.out.print("Velocidade Máxima: ");
+					c1.setVelocMax(input.nextFloat());
+					System.out.print("Potência de Motor: ");
+					c1.getMotor().setPotencia(input.nextInt());
+					System.out.print("Quantidade de Pistões do Motor: ");
+					c1.getMotor().setQtdPist(input.nextInt());
+					vetorCarga[index] = c1;
+					System.out.println("Veículo de carga cadastrado com sucesso!\n");
+					break;
+				}
+
+			}
+
+			System.out.print("Deseja cadastrar mais um veículo de carga (S / N)? ");
+			char cadastrar = 'N';
+			cadastrar = input.next().charAt(0);
+			if (cadastrar == 'S' || cadastrar == 's') {
+				cadastrarVeiculoCarga(vetorCarga);
+			}
+
+		}
+
 	}
 
 	public static void imprimirVeiculosPasseio(Passeio[] vetorPasseio) {
@@ -140,13 +195,24 @@ public class Teste {
 			}
 		}
 		if (empty == true) {
-			System.out.println("Não existem veículos de passeio cadastrados!\n");
+			System.out.println("Não existem veículos de PASSEIO cadastrados!\n");
 		}
 
 	}
 
-	public static void imprimirVeiculosCarga() {
+	public static void imprimirVeiculosCarga(Carga[] vetorCarga) {
 		System.out.println("\nImprimindo todos os veículos de Carga");
+		int i=0;
+		boolean empty = true;		
+		for (i= 0; vetorCarga.length > i; i++) {
+			if (vetorCarga[i] != null) {
+				System.out.println("\nVeículo de indíce: " + (i + 1) + vetorCarga[i]);
+				empty = false;
+			}
+		}
+		if (empty) {
+			System.out.println("Não existem veículos de CARGA cadastrados!\n");
+		}
 	}
 
 	public static void imprimirVeiculoPasseioPorPlaca() {
