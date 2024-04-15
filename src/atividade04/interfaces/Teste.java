@@ -11,6 +11,7 @@ public class Teste {
 		Scanner sc = new Scanner(System.in);
 
 		int opcao = 0;
+		String placaPasseio = null;
 
 		Passeio[] vetorPasseio = new Passeio[5];
 		Carga[] vetorCarga = new Carga[5];
@@ -34,7 +35,7 @@ public class Teste {
 					break;
 
 				case 5:
-					imprimirVeiculoPasseioPorPlaca();
+					imprimirVeiculoPasseioPorPlaca(vetorPasseio, placaPasseio);
 					break;
 				case 6:
 					imprimirVeiculoCargaPorPlaca();
@@ -202,9 +203,9 @@ public class Teste {
 
 	public static void imprimirVeiculosCarga(Carga[] vetorCarga) {
 		System.out.println("\nImprimindo todos os veículos de Carga");
-		int i=0;
-		boolean empty = true;		
-		for (i= 0; vetorCarga.length > i; i++) {
+		int i = 0;
+		boolean empty = true;
+		for (i = 0; vetorCarga.length > i; i++) {
 			if (vetorCarga[i] != null) {
 				System.out.println("\nVeículo de indíce: " + (i + 1) + vetorCarga[i]);
 				empty = false;
@@ -215,8 +216,24 @@ public class Teste {
 		}
 	}
 
-	public static void imprimirVeiculoPasseioPorPlaca() {
-		System.out.println("\nImprimindo veículo de passeio por placa");
+	public static void imprimirVeiculoPasseioPorPlaca(Passeio[] vetorPasseio, String placaPasseio) {
+		System.out.print("\nInforme a placa do veículo que deseja pesquisar: ");
+		Scanner input = new Scanner(System.in);
+		placaPasseio = input.nextLine();
+		boolean findPlaca = false;
+		for (int i = 0; vetorPasseio.length > i; i++) {
+			if (vetorPasseio[i] != null) {
+				if (vetorPasseio[i].getPlaca().equalsIgnoreCase(placaPasseio)) {
+					System.out.println(vetorPasseio[i]);
+					findPlaca = true;
+					break;
+				}
+			}
+		}
+		if (findPlaca == false) {
+			System.out.println("Não existe veículo de PASSEIO com a placa: " + placaPasseio);
+		}
+
 	}
 
 	public static void imprimirVeiculoCargaPorPlaca() {
