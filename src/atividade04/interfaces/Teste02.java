@@ -4,8 +4,8 @@ import atividade03.heranca.Passeio;
 
 public class Teste02 {
 
-	private static Passeio[] vetorPasseio = new Passeio[2];
-	private static Carga[] vetorCarga = new Carga[2];
+	private static Passeio[] vetorPasseio = new Passeio[5];
+	private static Carga[] vetorCarga = new Carga[5];
 	private static Passeio p1 = new Passeio();
 	private static Carga c1 = new Carga();
 	private static Leitura02 input = new Leitura02();
