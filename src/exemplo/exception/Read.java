@@ -6,17 +6,17 @@ import java.io.InputStreamReader;
 
 public class Read {
 
-	public String enterData(String label) {
+	public String enterData(String label) throws IOException {
 		System.out.print(label);
 		String ret = "";
 		InputStreamReader keyboard = new InputStreamReader(System.in);
 		BufferedReader buffer = new BufferedReader(keyboard);
 
-		try {
+		//try {
 			ret = buffer.readLine();
-		} catch (IOException exception) {
-			System.out.println("Erro de leitura de dados");
-		}
+		//} catch (IOException exception) {
+		//	System.out.println("Erro de leitura de dados");
+		//}
 		return ret;
 
 	}

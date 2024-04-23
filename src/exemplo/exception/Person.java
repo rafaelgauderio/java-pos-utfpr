@@ -20,9 +20,14 @@ public class Person {
 
 	// throws - aviso: pode lançar um objeto do tipo
 	// throw = ordem: lançe um objeto do tipo
-	public void setId(int id) throws IdLittleException {
-		if (id > 100) {
-			this.id = id;
+	public void setId(int id) throws IdLittleException, IdBigException {
+		if (id >= 100) {
+			if (id < 1000) {
+				this.id = id;
+			} else {
+				throw new IdBigException();
+			}
+
 		} else {
 			throw new IdLittleException();
 		}

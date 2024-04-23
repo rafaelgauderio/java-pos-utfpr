@@ -1,5 +1,7 @@
 package exemplo.exception;
 
+import java.io.IOException;
+
 public class Program {
 
 	public static void main(String[] args) {
@@ -10,7 +12,13 @@ public class Program {
 			person.setId(Integer.parseInt(read.enterData("\nEnter id number: ")));
 		} catch (IdLittleException idExceptionObject) { // exceção em tempo de compilação (verificada)
 			idExceptionObject.errorMessageLittleId();
-		} catch (NumberFormatException nfe) { // exceção em tempo de execução (não verificada)
+		} catch (IdBigException idBigExceptionObjetc) {
+			idBigExceptionObjetc.errorMessageBigId();
+		} catch (IOException ioe) {
+			System.out.println("Error reading data from keyborad");
+		}
+
+		catch (NumberFormatException nfe) { // exceção em tempo de execução (não verificada)
 			nfe.printStackTrace();
 			System.out.println("Id must a integer number!");
 		} finally { // esse bloco vai ser executado mesmo que ocorra um exceção ou não
