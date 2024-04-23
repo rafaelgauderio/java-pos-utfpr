@@ -122,13 +122,12 @@ public class Teste02 {
 				}
 
 			}
-			char cadastrar = input.entradaDados("Deseja cadastrar mais um veículo de passeio (S/N)? ").charAt(0);
-			if (cadastrar == 'S' || cadastrar == 's') {
-				cadastrarVeiculoPasseio(vetorPasseio);
-				break;
-			} else {
-				break;
-			}
+			break;
+
+		}
+		char cadastrar = input.entradaDados("Deseja cadastrar mais um veículo de passeio (S/N)? ").charAt(0);
+		if (cadastrar == 'S' || cadastrar == 's') {
+			cadastrarVeiculoPasseio(vetorPasseio);
 		}
 
 	}
@@ -163,7 +162,7 @@ public class Teste02 {
 					c1.setVelocMax(Integer.parseInt(input.entradaDados("Velocidade Máxima: ")));
 					c1.getMotor().setPotencia(Integer.parseInt(input.entradaDados("Potência de Motor: ")));
 					c1.getMotor().setQtdPist(Integer.parseInt(input.entradaDados("Quantidade de Pistões do Motor: ")));
-					c1.setCargaMax(Integer.parseInt(input.entradaDados("Carga máxima: ")));					
+					c1.setCargaMax(Integer.parseInt(input.entradaDados("Carga máxima: ")));
 					c1.setTara(Integer.parseInt(input.entradaDados("Tara: ")));
 					vetorCarga[index] = c1;
 					System.out.println("Veículo de carga cadastrado com sucesso!\n");
@@ -171,15 +170,12 @@ public class Teste02 {
 				}
 
 			}
-			char cadastrar = 'N';
-			cadastrar = input.entradaDados("\"Deseja cadastrar mais um veículo de carga (S/N)? \"").charAt(0);
-			if (cadastrar == 'S' || cadastrar == 's') {
-				cadastrarVeiculoCarga(vetorCarga);
-				break;
-			} else {
-				break;
-			}
-
+			break;
+		}
+		char cadastrar = 'N';
+		cadastrar = input.entradaDados("\"Deseja cadastrar mais um veículo de carga (S/N)? \"").charAt(0);
+		if (cadastrar == 'S' || cadastrar == 's') {
+			cadastrarVeiculoCarga(vetorCarga);
 		}
 
 	}
