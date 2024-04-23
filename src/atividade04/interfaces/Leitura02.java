@@ -8,7 +8,7 @@ public class Leitura02 {
 
 	public String entradaDados(String rotulo) {
 
-		System.out.println(rotulo);
+		System.out.print(rotulo);
 		InputStreamReader teclado = new InputStreamReader(System.in);
 		BufferedReader buffer = new BufferedReader(teclado);
 
