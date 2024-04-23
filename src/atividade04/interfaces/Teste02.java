@@ -4,16 +4,18 @@ import atividade03.heranca.Passeio;
 
 public class Teste02 {
 
-	private static Passeio[] vetorPasseio = new Passeio[5];
-	private static Carga[] vetorCarga = new Carga[5];
-	// private static Passeio passeio = new Passeio();
-	// private static Carga carga = new Carga();
+	private static Passeio[] vetorPasseio = new Passeio[2];
+	private static Carga[] vetorCarga = new Carga[2];
+	private static Passeio p1 = new Passeio();
+	private static Carga c1 = new Carga();
 	private static Leitura02 input = new Leitura02();
+	private static boolean findPlaca = false;
 
 	public static void main(String[] args) {
 
 		int opcao = 0;
-		String placaPasseio = null, placaCarga = null;	
+
+		String placaPasseio = null, placaCarga = null;
 
 		do {
 			menuInicial();
@@ -66,18 +68,37 @@ public class Teste02 {
 
 	}
 
-	private static void cadastrarVeiculoPasseio(Passeio[] vetorPasseio) {
+	private static int verificaVetorPasseioIsVazio() {
+		for (int i = 0; i < vetorPasseio.length; i++) {
+			if (vetorPasseio[i] == null) {
+				return i;
+			}
+		}
+		return -1;
+	}
 
-		if (vetorPasseio[4] != null) {
-			System.out.println(
-					"O vetor de veículos de PASSEIO já está cheio. Não tem mais como cadastrar novos veículos de passeio!\n");
-		} else {
-			Passeio p1 = new Passeio();
+	private static int verificaVetorCargaIsVazio() {
+		for (int i = 0; i < vetorCarga.length; i++) {
+			if (vetorCarga[i] == null) {
+				return i;
+			}
+		}
+		return -1;
+	}
+
+	private static void cadastrarVeiculoPasseio(Passeio[] vetorPasseio) {
+		for (int i = verificaVetorPasseioIsVazio(); i < vetorPasseio.length;) {
+			if (i == -1) {
+				System.out.println(
+						"O vetor de veículos de PASSEIO já está cheio. Não tem mais como cadastrar novos veículos de passeio!\n");
+				break;
+			}
+			p1 = new Passeio();
 			System.out.println("===================CADASTRO DE VEÍCULO DE PASSEIO=====================\n"
 					+ "Insira os dados e valores solicitados abaixo\n"
-					+ "======================================================================");			
+					+ "======================================================================");
 			String placaTentativa = input.entradaDados("Placa passeio: ");
-			for (int index = 0; vetorPasseio.length > index; index++) {
+			for (int index = 0; index < vetorPasseio.length; index++) {
 				if (vetorPasseio[index] != null) {
 					if (vetorPasseio[index].getPlaca().equalsIgnoreCase(placaTentativa)) {
 						System.out.println("==================ATENÇÃO====================\n"
@@ -101,29 +122,31 @@ public class Teste02 {
 				}
 
 			}
-
-			char cadastrar = 'N';
-			cadastrar = input.entradaDados("Deseja cadastrar mais um veículo de passeio (S/N)? ").charAt(0);
+			char cadastrar = input.entradaDados("Deseja cadastrar mais um veículo de passeio (S/N)? ").charAt(0);
 			if (cadastrar == 'S' || cadastrar == 's') {
 				cadastrarVeiculoPasseio(vetorPasseio);
+				break;
+			} else {
+				break;
 			}
-
 		}
 
 	}
 
 	private static void cadastrarVeiculoCarga(Carga[] vetorCarga) {
-		if (vetorCarga[4] != null) {
-			System.out.println(
-					"O vetor de veículos de CARGA já está cheio. Não tem mais como cadastrar novos veículos de carga!\n");
-		} else {
+		for (int i = verificaVetorCargaIsVazio(); i < vetorCarga.length;) {
+			if (i == -1) {
+				System.out.println(
+						"O vetor de veículos de Carga já está cheio. Não tem mais como cadastrar novos veículos de carga!\n");
+				break;
+			}
 
-			Carga c1 = new Carga();
+			c1 = new Carga();
 			System.out.println("===================CADASTRO DE VEÍCULO DE CARGA=====================\n"
 					+ "Insira os dados e valores solicitados abaixo\n"
 					+ "======================================================================");
 			String placaTentativa = input.entradaDados("Placa carga: ");
-			for (int index = 0; vetorCarga.length > index; index++) {
+			for (int index = 0; index < vetorCarga.length; index++) {
 				if (vetorCarga[index] != null) {
 					if (vetorCarga[index].getPlaca().equalsIgnoreCase(placaTentativa)) {
 						System.out.println("==================ATENÇÃO====================\n"
@@ -140,8 +163,7 @@ public class Teste02 {
 					c1.setVelocMax(Integer.parseInt(input.entradaDados("Velocidade Máxima: ")));
 					c1.getMotor().setPotencia(Integer.parseInt(input.entradaDados("Potência de Motor: ")));
 					c1.getMotor().setQtdPist(Integer.parseInt(input.entradaDados("Quantidade de Pistões do Motor: ")));
-					c1.setCargaMax(Integer.parseInt(input.entradaDados("Carga máxima: ")));
-					System.out.print("Tara: ");
+					c1.setCargaMax(Integer.parseInt(input.entradaDados("Carga máxima: ")));					
 					c1.setTara(Integer.parseInt(input.entradaDados("Tara: ")));
 					vetorCarga[index] = c1;
 					System.out.println("Veículo de carga cadastrado com sucesso!\n");
@@ -153,6 +175,9 @@ public class Teste02 {
 			cadastrar = input.entradaDados("\"Deseja cadastrar mais um veículo de carga (S/N)? \"").charAt(0);
 			if (cadastrar == 'S' || cadastrar == 's') {
 				cadastrarVeiculoCarga(vetorCarga);
+				break;
+			} else {
+				break;
 			}
 
 		}
@@ -162,14 +187,14 @@ public class Teste02 {
 	private static void imprimirVeiculosPasseio(Passeio[] vetorPasseio) {
 		System.out.println("\nImprimindo todos os veículos de Passeio");
 		int i = 0;
-		boolean empty = true;
+		findPlaca = false;
 		for (i = 0; vetorPasseio.length > i; i++) {
 			if (vetorPasseio[i] != null) {
 				System.out.println("Veículo de indíce: " + (i + 1) + vetorPasseio[i]);
-				empty = false;
+				findPlaca = true;
 			}
 		}
-		if (empty == true) {
+		if (!findPlaca) {
 			System.out.println("Não existem veículos de PASSEIO cadastrados!\n");
 		}
 
@@ -213,7 +238,7 @@ public class Teste02 {
 	private static void imprimirVeiculoCargaPorPlaca(Carga[] vetorCarga, String placaCarga) {
 
 		placaCarga = input.entradaDados("\nInforme a placa do veículo que deseja pesquisar: ");
-		boolean findPlaca = false;
+		findPlaca = false;
 		for (int i = 0; vetorCarga.length > i; i++) {
 			if (vetorCarga[i] != null) {
 				if (vetorCarga[i].getPlaca().equalsIgnoreCase(placaCarga)) {
@@ -224,7 +249,7 @@ public class Teste02 {
 				}
 			}
 		}
-		if (findPlaca == false) {
+		if (!findPlaca) {
 			System.out.println("Não existe veículo de CARGA com a placa: " + placaCarga);
 		}
 	}
