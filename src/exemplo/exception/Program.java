@@ -16,17 +16,13 @@ public class Program {
 			idBigExceptionObjetc.errorMessageBigId();
 		} catch (IOException ioe) {
 			System.out.println("Error reading data from keyborad");
-		}
-
-		catch (NumberFormatException nfe) { // exceção em tempo de execução (não verificada)
+		} catch (NumberFormatException nfe) { // exceção em tempo de execução (não verificada)
 			nfe.printStackTrace();
 			System.out.println("Id must a integer number!");
 		} finally { // esse bloco vai ser executado mesmo que ocorra um exceção ou não
 			System.out.println("Executing finally block.");
 		}
-
 		System.out.println("\nId: " + person.getId());
-
 	}
 
 }
