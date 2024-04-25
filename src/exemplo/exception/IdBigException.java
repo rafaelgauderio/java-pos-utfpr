@@ -17,7 +17,7 @@ public class IdBigException extends Exception {
 	public Person correctBigId(Person person) {
 
 		try {
-			person.setId(Integer.parseInt(read.enterData("\nId number to big! Enter id number: ")));
+			person.setId(Integer.parseInt(read.enterData("\nEnter id number: ")));
 		} catch (IdLittleException idExceptionObject) {
 			idExceptionObject.errorMessageLittleId();
 			idExceptionObject.correctLittleId(person);
@@ -25,7 +25,8 @@ public class IdBigException extends Exception {
 			errorMessageBigId();
 			correctBigId(person);
 		} catch (NumberFormatException nfe) {
-			System.out.println("Id must a integer number!");
+			System.out.println("Id must be a integer: ");
+			correctBigId(person);
 		}
 		return person;
 	}

@@ -17,9 +17,13 @@ public class Program5 {
 			idBigExceptionObjetc.errorMessageBigId();
 			person = idBigExceptionObjetc.correctBigId(person);
 		} catch (NumberFormatException nfe) {
-			System.out.println("Id must a integer number!");
+			IdLittleException idException = new IdLittleException();
+			idException.errorNumberException();
+			idException.correctLittleId(person);
+
 		} finally {
-			System.out.println("\nId: " + person.getId());
+			
+			System.out.println("============================\nId: " + person.getId() + "\n============================");
 		}
 
 	}

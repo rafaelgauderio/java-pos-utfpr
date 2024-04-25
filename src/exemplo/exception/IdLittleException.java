@@ -13,11 +13,15 @@ public class IdLittleException extends Exception {
 	public void errorMessageLittleId() {
 		System.out.println("\n\tId must be greated than 100");
 	}
-
+	
+	public void errorNumberException () {
+		System.out.println("\n\tId must be a integer.");
+	}	
+ 
 	public Person correctLittleId(Person person) {
 
 		try {
-			person.setId(Integer.parseInt(read.enterData("\nId number to little! Enter id number: ")));
+			person.setId(Integer.parseInt(read.enterData("\nEnter id number: ")));
 
 		} catch (IdLittleException idExceptionObject) {
 			errorMessageLittleId();
@@ -26,7 +30,8 @@ public class IdLittleException extends Exception {
 			idBigExceptionObjetc.errorMessageBigId();
 			idBigExceptionObjetc.correctBigId(person);
 		} catch (NumberFormatException nfe) {
-			System.out.println("Id must a integer number!");
+			errorNumberException();
+			correctLittleId(person);
 		}
 		return person;
 	}
