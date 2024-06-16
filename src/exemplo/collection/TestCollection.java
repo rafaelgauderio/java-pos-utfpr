@@ -61,12 +61,25 @@ public class TestCollection {
 
 		System.out.println("Removin informing the index");
 		int index = Integer.parseInt(read.enterData("Inform the index of the object to remove:"));
-		personDataBase.remove(index);		
+		personDataBase.remove(index);
 
 		System.out.println("\nPrinting object arrayList after exclusion");
 		for (Person nickname : personDataBase) {
 			System.out.println("Id: " + nickname.getId() + " - Name: " + nickname.getName());
 		}
+
+		System.out.println("\nUpdate List: (overwrite) " + "\n" + "Inform the nem object id and name:");
+		Person person01 = new Person();
+		person01.setId(Integer.parseInt(read.enterData("Id...: ")));
+		person01.setName(read.enterData("Name..: "));
+
+		index = Integer.parseInt(read.enterData("Inform the index of the object do you want to update!"));
+		personDataBase.set(index, person01);
+
+		for (Person nickname : personDataBase) {
+			System.out.println("Id: " + nickname.getId() + " - Name: " + nickname.getName());
+		}
+
 	}
 
 }
