@@ -17,7 +17,11 @@ public class TestCollection {
 
 			person = new Person();
 
-			person.setId(Integer.parseInt(read.enterData("Id...: ")));
+			try {
+				person.setId(Integer.parseInt(read.enterData("Id...: ")));
+			} catch (NumberFormatException exception) {
+				System.out.println("Must inform a integer number");
+			}
 			person.setName(read.enterData("Name..: "));
 
 			personDataBase.add(person);
@@ -44,7 +48,13 @@ public class TestCollection {
 
 		// equal compara ojetos, == compara tipos primitivos
 		System.out.println("Removing informing the Id");
-		int removeId = (Integer.parseInt(read.enterData("Inform person id do you want to remove:")));
+		int removeId = 0;
+		try {
+			removeId = (Integer.parseInt(read.enterData("Inform person id do you want to remove:")));
+
+		} catch (NumberFormatException exception) {
+			System.out.println("Must inform a integer number");
+		}
 
 		for (int i = 0; i < personDataBase.size(); i++) {
 			if (removeId == personDataBase.get(i).getId()) {
@@ -59,9 +69,16 @@ public class TestCollection {
 			System.out.println("Id: " + nickname.getId() + " - Name: " + nickname.getName());
 		}
 
-		System.out.println("Removin informing the index");
-		int index = Integer.parseInt(read.enterData("Inform the index of the object to remove:"));
-		personDataBase.remove(index);
+		System.out.println("Removin by index, informing the index");
+
+		try {
+			int index = Integer.parseInt(read.enterData("Inform the index of the object to remove:"));
+			personDataBase.remove(index);
+		} catch (IndexOutOfBoundsException exception) {
+			System.out.println("The index has to be betwen " + (personDataBase.size() - 1));
+		} catch (NumberFormatException exception) {
+			System.out.println("Must inform a integer number");
+		}
 
 		System.out.println("\nPrinting object arrayList after exclusion");
 		for (Person nickname : personDataBase) {
@@ -70,11 +87,23 @@ public class TestCollection {
 
 		System.out.println("\nUpdate List: (overwrite) " + "\n" + "Inform the nem object id and name:");
 		Person person01 = new Person();
-		person01.setId(Integer.parseInt(read.enterData("Id...: ")));
+		try {
+			person01.setId(Integer.parseInt(read.enterData("Id...: ")));
+		} catch (IndexOutOfBoundsException exception) {
+			System.out.println("The index has to be betwen " + (personDataBase.size() - 1));
+		} catch (NumberFormatException exception) {
+			System.out.println("Must inform a integer number");
+		}
 		person01.setName(read.enterData("Name..: "));
-
-		index = Integer.parseInt(read.enterData("Inform the index of the object do you want to update!"));
-		personDataBase.set(index, person01);
+		int updateIndex = 0;
+		try {
+			updateIndex = Integer.parseInt(read.enterData("Inform the index of the object do you want to update!"));
+			personDataBase.set(updateIndex, person01);
+		} catch (IndexOutOfBoundsException exception) {
+			System.out.println("The index has to be betwen " + (personDataBase.size() - 1));
+		} catch (NumberFormatException exception) {
+			System.out.println("Must inform a integer number");
+		}
 
 		for (Person nickname : personDataBase) {
 			System.out.println("Id: " + nickname.getId() + " - Name: " + nickname.getName());
