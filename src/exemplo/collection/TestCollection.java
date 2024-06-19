@@ -85,7 +85,7 @@ public class TestCollection {
 			System.out.println("Id: " + nickname.getId() + " - Name: " + nickname.getName());
 		}
 
-		System.out.println("\nUpdate List: (overwrite) " + "\n" + "Inform the nem object id and name:");
+		System.out.println("\nUpdate List: (overwrite) " + "\n" + "Inform the new object: id and name:");
 		Person person01 = new Person();
 		try {
 			person01.setId(Integer.parseInt(read.enterData("Id...: ")));
