@@ -52,7 +52,7 @@ public class TestCollection {
 				System.out.println("\nReal sure to exit the application? <y/n>");
 				String exit = read.enterData("");
 				if (exit.equalsIgnoreCase("y")) {
-					System.out.println("Close API.");
+					System.out.print("Close API.");
 					System.exit(0);
 				}
 				break;
