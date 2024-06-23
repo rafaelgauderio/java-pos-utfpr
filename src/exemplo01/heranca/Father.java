@@ -1,10 +1,10 @@
 package exemplo01.heranca;
 
 public class Father extends Parents {
-	
+
 	private String pantsColor;
-	
-	public Father () {
+
+	public Father() {
 		this.pantsColor = "";
 	}
 
@@ -20,22 +20,18 @@ public class Father extends Parents {
 	public void setPantsColor(String pantsColor) {
 		this.pantsColor = pantsColor;
 	}
-	
+
 	@Override
-	public int calcId () {
+	public int calcId() {
 		return this.getParentsId() * 10;
 	}
 
-
 	@Override
-	public String toString () {
-		return "\nFather data"
-				+ "\nfather id: " + this.getParentsId() 
-				+ "\nfather name: " + this.getParentsName()
-				+ "\nfather id fixed: " + String.format("%d", this.calcId())
-				+ "\nfather son큦 id: " + this.getParentsSon().getSonId()
-				+ "\nfather son큦 name: " +  this.getParentsSon().getSonName()
-				+ "\nfather pant큦 color: " + this.getPantsColor() + "\n";				
+	public String toString() {
+		return "\nFather data" + "\nfather id: " + this.getParentsId() + "\nfather name: " + this.getParentsName()
+				+ "\nfather id fixed: " + String.format("%d", this.calcId()) + "\nfather son큦 id: "
+				+ this.getParentsSon().getSonId() + "\nfather son큦 name: " + this.getParentsSon().getSonName()
+				+ "\nfather pant큦 color: " + this.getPantsColor() + "\n";
 	}
-	
+
 }

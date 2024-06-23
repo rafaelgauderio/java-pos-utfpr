@@ -1,7 +1,7 @@
 package atividade04.interfaces;
 
 public interface Calcular {
-	
-	public int calcular ();
+
+	public int calcular();
 
 }

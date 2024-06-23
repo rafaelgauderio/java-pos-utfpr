@@ -41,10 +41,9 @@ public abstract class Parents {
 	public void setParentsSon(Son parentsSon) {
 		this.parentsSon = parentsSon;
 	}
-	
+
 	// método abstrato não tem corpo
 	// deve ser implmentado nas classes filhas
-	public abstract int calcId ();
-	
+	public abstract int calcId();
 
 }

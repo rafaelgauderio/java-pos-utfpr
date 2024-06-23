@@ -1,28 +1,29 @@
 package atividade03.heranca;
 
 public abstract class Veiculo {
-	
+
 	private String placa;
 	private String marca;
 	private String modelo;
 	private String cor;
 	private float velocMax;
 	private int qdtRodas;
-	private Motor motor;	
-	
+	private Motor motor;
+
 	public Veiculo() {
-		
+
 		this.placa = "";
 		this.marca = "";
 		this.modelo = "";
 		this.cor = "";
 		this.velocMax = 0.0f;
 		this.qdtRodas = 0;
-		this.motor = new Motor ();
-	}	
+		this.motor = new Motor();
+	}
 
-	public Veiculo(String placa, String marca, String modelo, String cor, float velocMax, int qdtRodas, int qtdPistao, int potencia) {
-		
+	public Veiculo(String placa, String marca, String modelo, String cor, float velocMax, int qdtRodas, int qtdPistao,
+			int potencia) {
+
 		this.placa = placa;
 		this.marca = marca;
 		this.modelo = modelo;
@@ -31,8 +32,6 @@ public abstract class Veiculo {
 		this.qdtRodas = qdtRodas;
 		this.motor = new Motor(qtdPistao, potencia);
 	}
-
-
 
 	public String getPlaca() {
 		return placa;
@@ -88,10 +87,10 @@ public abstract class Veiculo {
 
 	public final void setMotor(Motor motor) {
 		this.motor = motor;
-	}	
-	
+	}
+
 	// método abstrato não tem corpo
 	// deve ser implementado nas classes filhas
-	public abstract float calcVel(float velocMax);		
+	public abstract float calcVel(float velocMax);
 
 }

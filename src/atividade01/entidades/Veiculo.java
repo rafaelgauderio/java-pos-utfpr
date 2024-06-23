@@ -115,9 +115,9 @@ public class Veiculo {
 	@Override
 	public String toString() {
 		return "\nVeículo [\nplaca= " + this.placa + "\nmarca= " + this.marca + "\nmodelo= " + this.modelo + "\ncor= "
-				+ this.cor + "\nvelocidade máxima= " + String.format("%.2f km/h", this.velocMax) + "\nquantidade de Rodas= "
-				+ this.qtdRodas + "\nquantidade de pistões= " + this.motor.getQtdPist() + "\npotência= "
-				+ this.motor.getPotencia() + " HP\n]";
+				+ this.cor + "\nvelocidade máxima= " + String.format("%.2f km/h", this.velocMax)
+				+ "\nquantidade de Rodas= " + this.qtdRodas + "\nquantidade de pistões= " + this.motor.getQtdPist()
+				+ "\npotência= " + this.motor.getPotencia() + " HP\n]";
 	}
 
 }

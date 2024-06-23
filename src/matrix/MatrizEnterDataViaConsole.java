@@ -31,9 +31,9 @@ public class MatrizEnterDataViaConsole {
 			// pular uma linha quando mudar de linha
 			System.out.println();
 		}
-		
+
 		System.out.println("\nImprimindo a matriz na ordem natural");
-		for (int i=0; i < numberRow; i++) {
+		for (int i = 0; i < numberRow; i++) {
 			for (int j = 0; j < numberColumn; j++) {
 				System.out.print("[" + matrix[i][j] + "]\t");
 			}

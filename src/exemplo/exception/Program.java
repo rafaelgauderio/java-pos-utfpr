@@ -11,7 +11,7 @@ public class Program {
 		} catch (IdLittleException idExceptionObject) { // exceção em tempo de compilação (verificada)
 			idExceptionObject.errorMessageLittleId();
 		} catch (IdBigException idBigExceptionObjetc) {
-			idBigExceptionObjetc.errorMessageBigId();		
+			idBigExceptionObjetc.errorMessageBigId();
 		} catch (NumberFormatException nfe) { // exceção em tempo de execução (não verificada)
 			nfe.printStackTrace();
 			System.out.println("Id must a integer number!");
