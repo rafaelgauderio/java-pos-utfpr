@@ -4,7 +4,7 @@ public class Endereco {
 
 	private String rua = "";
 	private int num = 0;
-	private Cidade cidade = new Cidade ();
+	private Cidade cidade = new Cidade();
 
 	public String getRua() {
 		return rua;
@@ -20,7 +20,7 @@ public class Endereco {
 
 	public void setNum(int num) {
 		this.num = num;
-	}	
+	}
 
 	public Cidade getCidade() {
 		return cidade;
@@ -32,7 +32,7 @@ public class Endereco {
 
 	@Override
 	public String toString() {
-		return "[Rua= " + rua + ", número= " + num + cidade +"]";
+		return "[Rua= " + rua + ", número= " + num + cidade + "]";
 	}
 
 }

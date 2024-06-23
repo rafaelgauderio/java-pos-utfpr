@@ -41,17 +41,12 @@ public final class Carga extends Veiculo {
 	}
 
 	public String toString() {
-		return "\n=========== VEÍCULO DE CARGA ==========="
-				+ "\nMarca: " + this.getMarca()
-				+ "\nModelo: "+ this.getModelo()
-				+ "\nPlaca: " + this.getPlaca()
-				+ "\nCor: " + this.getCor()
-				+ "\nQuantidade de Rodas: " + this.getQdtRodas() 
-				+ "\nVelocidade Máxima (cm/h): " + String.format("%.2f", calcVel(this.getVelocMax()))
-				+ "\nQuantidade de Pistões: " + this.getMotor().getQtdPist()
-				+ "\nPotência do Motor: " + this.getMotor().getPotencia()
-				+ "\nCarga máxima: " + this.cargaMax
-				+ "\nTara: " + this.tara
+		return "\n=========== VEÍCULO DE CARGA ===========" + "\nMarca: " + this.getMarca() + "\nModelo: "
+				+ this.getModelo() + "\nPlaca: " + this.getPlaca() + "\nCor: " + this.getCor()
+				+ "\nQuantidade de Rodas: " + this.getQdtRodas() + "\nVelocidade Máxima (cm/h): "
+				+ String.format("%.2f", calcVel(this.getVelocMax())) + "\nQuantidade de Pistões: "
+				+ this.getMotor().getQtdPist() + "\nPotência do Motor: " + this.getMotor().getPotencia()
+				+ "\nCarga máxima: " + this.cargaMax + "\nTara: " + this.tara
 				+ "\n==========================================";
 	}
 

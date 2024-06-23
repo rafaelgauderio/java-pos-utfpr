@@ -9,10 +9,10 @@ public class Program3 {
 		try {
 			person.setId(Integer.parseInt(read.enterData("\nEnter id number: ")));
 		} catch (IdLittleException | IdBigException idException) {
-			
+
 			System.out.println("\nMultication to id! ");
-			
-		}  catch (NumberFormatException nfe) {
+
+		} catch (NumberFormatException nfe) {
 			nfe.printStackTrace();
 			System.out.println("Id must a integer number!");
 		}

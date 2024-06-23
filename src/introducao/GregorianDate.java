@@ -18,7 +18,7 @@ public class GregorianDate {
 		System.out.println("Data: " + day + "/" + month + "/" + year);
 		System.out.println("Hora: " + hour + ":" + minute + ":" + second);
 		System.out.println(date);
-		
+
 	}
 
 }

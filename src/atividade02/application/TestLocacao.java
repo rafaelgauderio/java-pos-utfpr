@@ -18,7 +18,7 @@ public class TestLocacao {
 		Cidade cid = new Cidade();
 		cid.setCodCid(200);
 		cid.setNomeCid("Porto Alegre");
-		
+
 		Cidade cid02 = new Cidade();
 		cid02.setCodCid(300);
 		cid02.setNomeCid("Canoas");

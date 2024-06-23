@@ -1,16 +1,16 @@
 package exemplo01.heranca;
 
 public class Son {
-	
+
 	private int sonId;
 	private String sonName;
-	
-	public Son () {
-		this.sonId=0;
+
+	public Son() {
+		this.sonId = 0;
 		this.sonName = "";
 	}
 
-	public Son(int sonId, String sonName) {		
+	public Son(int sonId, String sonName) {
 		this.sonId = sonId;
 		this.sonName = sonName;
 	}
@@ -29,6 +29,6 @@ public class Son {
 
 	public void setSonName(String sonName) {
 		this.sonName = sonName;
-	}	
+	}
 
 }

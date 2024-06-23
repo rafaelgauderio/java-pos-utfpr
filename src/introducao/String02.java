@@ -30,11 +30,11 @@ public class String02 {
 
 		System.out.println("\nQuando não encontra o caracter retorna -1");
 		System.out.println(frase.indexOf('x'));
-		
+
 		System.out.println("\n\nTrocando caracteres");
-		System.out.println(frase.replace("Java","Inteligência artificial"));
+		System.out.println(frase.replace("Java", "Inteligência artificial"));
 		System.out.println(frase.replace('a', 'e'));
-		
+
 		System.out.println("\nRemovendo espaços em branco no começo e no fim");
 		System.out.println(frase02);
 		System.out.println(frase02.length());
