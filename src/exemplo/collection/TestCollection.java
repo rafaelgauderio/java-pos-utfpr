@@ -99,7 +99,7 @@ public class TestCollection {
 
 	public static void printOnePerson(int personIndex) {
 
-		System.out.println("\nPersonData\nId: " + personDataBase.get(personIndex).getId() + ", Name: "
+		System.out.println("\nPersonData\nId: " + personDataBase.get(personIndex).getId() + " - Name: "
 				+ personDataBase.get(personIndex).getName());
 	}
 
