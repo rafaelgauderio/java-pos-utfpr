@@ -26,7 +26,7 @@ public class TestCollection {
 			try {
 				option = Integer.parseInt(read.enterData("\nChoose an option between 1 and 6: "));
 			} catch (NumberFormatException exception) {
-				read.enterData("\nThe option must be a integer number. Press <ENTER> to continue.");
+				read.enterData("\nThe option must be a integer number. Press <ENTER> to continue...");
 				continue; // abandon the sctructure e do annother loop;
 			}
 
@@ -41,6 +41,14 @@ public class TestCollection {
 				break;
 			case 3:
 				System.out.println("\nConsult Person by id");
+				int personId = Integer.parseInt(read.enterData("Inform person Id to print data: "));
+				person = findPersonById(personId);
+				if (person == null) {
+					read.enterData("\nNo person with this id on the data base. Press <ENTER> to continue...");
+				} else {
+					printOnePerson(person);
+				}
+
 				break;
 			case 4:
 				System.out.println("\nRemove Person by id");
@@ -88,14 +96,24 @@ public class TestCollection {
 		System.out.println("Ther is/are person(s) " + personDataBase.size() + " on the data base!");
 
 	}
+
+	public static void printOnePerson(Person per) {
+
+		System.out.println("\nPersonData\nId: " + per.getId() + ", Name: " + per.getName());
+	}
+
+	public static Person findPersonById(int personId) {
+		for (int i = 0; i < personDataBase.size(); i++) {
+			if (personId == personDataBase.get(i).getId()) {
+				return personDataBase.get(i);
+			}
+		}
+		return null;
+	}
+
 }
 
 /*
- * 
- * System.out.println("List size: " + personDataBase.size());
- * 
- * 
- * 
  * 
  * // equal compara ojetos, == compara tipos primitivos
  * System.out.println("Removing informing the Id"); int removeId = 0; try {
