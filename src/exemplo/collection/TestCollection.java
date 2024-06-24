@@ -42,11 +42,11 @@ public class TestCollection {
 			case 3:
 				System.out.println("\nConsult Person by id");
 				int personId = Integer.parseInt(read.enterData("Inform person Id to print data: "));
-				person = findPersonById(personId);
-				if (person == null) {
+				int personIndex = findPersonById(personId);
+				if (personIndex == -1) {
 					read.enterData("\nNo person with this id on the data base. Press <ENTER> to continue...");
 				} else {
-					printOnePerson(person);
+					printOnePerson(personIndex);
 				}
 
 				break;
@@ -97,18 +97,20 @@ public class TestCollection {
 
 	}
 
-	public static void printOnePerson(Person per) {
+	public static void printOnePerson(int personIndex) {
 
-		System.out.println("\nPersonData\nId: " + per.getId() + ", Name: " + per.getName());
+		System.out.println("\nPersonData\nId: " + personDataBase.get(personIndex).getId() + ", Name: "
+				+ personDataBase.get(personIndex).getName());
 	}
 
-	public static Person findPersonById(int personId) {
-		for (int i = 0; i < personDataBase.size(); i++) {
+	public static int findPersonById(int personId) {
+		int i = 0;
+		for (i = 0; i < personDataBase.size(); i++) {
 			if (personId == personDataBase.get(i).getId()) {
-				return personDataBase.get(i);
+				return i;
 			}
 		}
-		return null;
+		return -1;
 	}
 
 }
