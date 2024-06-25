@@ -1,7 +1,6 @@
 package exemplo.collection;
 
 import java.util.List;
-import java.nio.file.ReadOnlyFileSystemException;
 import java.util.ArrayList;
 
 public class TestCollection {
@@ -34,7 +33,7 @@ public class TestCollection {
 			switch (option) {
 			case 1:
 				System.out.println("\nInsert Person");
-				person = insertPerson(new Person());
+				insertPerson(new Person());
 				break;
 			case 2:
 				System.out.println("\nList All Person");
@@ -69,7 +68,7 @@ public class TestCollection {
 				if (updatePersonIndex == -1) {
 					read.enterData("\nNo person with this id on the data base. Press <ENTER> to continue...");
 				} else {
-					System.out.println("Informe the new person Id and name");
+					System.out.println("Inform the new person Id and name:");
 					int newPersonId = Integer.parseInt(read.enterData("Id..: "));
 					String newPersonName = read.enterData("Name..: ");
 					person = new Person(newPersonId, newPersonName);
@@ -88,23 +87,32 @@ public class TestCollection {
 				read.enterData("\nThe option must be between 1 and 6. <Enter>");
 				break;
 			}
-
 		}
-
 	}
 
-	public static Person insertPerson(Person person) {
+	public static void insertPerson(Person person) {
 
-		try {
-			person.setId(Integer.parseInt(read.enterData("Id...: ")));
-		} catch (NumberFormatException exception) {
-			System.out.println("Must inform a integer number");
+		int personId = Integer.parseInt(read.enterData("Informe person id and name.\nId..: "));
+		int resultFromDataBase = findPersonById(personId);
+		if (resultFromDataBase != -1) {
+			personId = Integer.parseInt(read.enterData(
+					"There is already this id on the database. Try a new one diffent from " + personId + ": "));
+			resultFromDataBase = findPersonById(personId);
+						while (resultFromDataBase != -1) {
+				personId = Integer.parseInt(read.enterData(
+						"There is also this id on the database. Try a new one diffente from " + personId + ": "));
+				resultFromDataBase = findPersonById(personId);				
+			}
+			person.setId(personId);
+			person.setName(read.enterData("Id accept, informe the name now.\nName..: "));
+			personDataBase.add(person);
+			System.out.println("Person add with success!");
+		} else {
+			person.setId(personId);
+			person.setName(read.enterData("Name..: "));
+			personDataBase.add(person);
+			System.out.println("Person add with success!");
 		}
-		person.setName(read.enterData("Name..: "));
-
-		personDataBase.add(person);
-
-		return person;
 	}
 
 	public static void printAllpersonDataBase() {
@@ -118,7 +126,6 @@ public class TestCollection {
 		} else {
 			System.out.println("There is/are person(s) " + personDataBase.size() + " on the data base!");
 		}
-
 	}
 
 	public static void printOnePerson(int personIndex) {
@@ -146,7 +153,6 @@ public class TestCollection {
 		personDataBase.set(personIndex, person);
 		System.out.println("\nPerson data UPDATE with success");
 	}
-
 }
 
 /*

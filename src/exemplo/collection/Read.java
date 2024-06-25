@@ -15,7 +15,7 @@ public class Read {
 		try {
 			ret = buffer.readLine();
 		} catch (IOException exception) {
-			System.out.println("Erro de leitura de dados");
+			System.out.println("Error reading data");
 		}
 		return ret;
 
