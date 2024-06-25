@@ -69,7 +69,7 @@ public class TestCollection {
 				if (updatePersonIndex == -1) {
 					read.enterData("\nNo person with this id on the data base. Press <ENTER> to continue...");
 				} else {
-					read.enterData("\nInform the new perso data: ");
+					System.out.println("Informe the new person Id and name");
 					int newPersonId = Integer.parseInt(read.enterData("Id..: "));
 					String newPersonName = read.enterData("Name..: ");
 					person = new Person(newPersonId, newPersonName);
