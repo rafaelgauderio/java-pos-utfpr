@@ -17,7 +17,7 @@ public class TestCollection {
 		while (keepLoop) {
 			System.out.println("\nMenu");
 			System.out.println("1. Insert Person");
-			System.out.println("2. List all  Persons");
+			System.out.println("2. List all Persons");
 			System.out.println("3. Consult Person by id");
 			System.out.println("4. Remove Person by id");
 			System.out.println("5. Update Person by id");
@@ -52,6 +52,14 @@ public class TestCollection {
 				break;
 			case 4:
 				System.out.println("\nRemove Person by id");
+				int removePersonId = Integer.parseInt(read.enterData("Inform a Person id to remove person: "));
+				int removePersonIndex = findPersonById(removePersonId);
+				if (removePersonIndex == -1) {
+					read.enterData("\nNo person with this id on the data base. Press <ENTER> to continue...");
+				} else {
+					removePersonById(removePersonIndex);
+				}
+
 				break;
 			case 5:
 				System.out.println("\nUpdate Person by id");
@@ -93,7 +101,11 @@ public class TestCollection {
 			System.out.println("index: " + i + " - Id: " + personDataBase.get(i).getId() + " - Name: "
 					+ personDataBase.get(i).getName());
 		}
-		System.out.println("Ther is/are person(s) " + personDataBase.size() + " on the data base!");
+		if (personDataBase.size() == 0) {
+			System.out.println("The database is empty! Insert a new person.");
+		} else {
+			System.out.println("There is/are person(s) " + personDataBase.size() + " on the data base!");
+		}
 
 	}
 
@@ -111,6 +123,11 @@ public class TestCollection {
 			}
 		}
 		return -1;
+	}
+
+	public static void removePersonById(int personIndex) {
+		personDataBase.remove(personIndex);
+		System.out.println("\nPerson remove with sucess!");
 	}
 
 }
