@@ -1,6 +1,7 @@
 package exemplo.collection;
 
 import java.util.List;
+import java.nio.file.ReadOnlyFileSystemException;
 import java.util.ArrayList;
 
 public class TestCollection {
@@ -63,6 +64,17 @@ public class TestCollection {
 				break;
 			case 5:
 				System.out.println("\nUpdate Person by id");
+				int updatePersonId = Integer.parseInt(read.enterData("Inform the Person id to update data: "));
+				int updatePersonIndex = findPersonById(updatePersonId);
+				if (updatePersonIndex == -1) {
+					read.enterData("\nNo person with this id on the data base. Press <ENTER> to continue...");
+				} else {
+					read.enterData("\nInform the new perso data: ");
+					int newPersonId = Integer.parseInt(read.enterData("Id..: "));
+					String newPersonName = read.enterData("Name..: ");
+					person = new Person(newPersonId, newPersonName);
+					updatePersonById(updatePersonIndex, person);
+				}
 				break;
 			case 6:
 				System.out.println("\nReal sure to exit the application? <y/n>");
@@ -127,7 +139,12 @@ public class TestCollection {
 
 	public static void removePersonById(int personIndex) {
 		personDataBase.remove(personIndex);
-		System.out.println("\nPerson remove with sucess!");
+		System.out.println("\nPerson remove with success!");
+	}
+
+	public static void updatePersonById(int personIndex, Person person) {
+		personDataBase.set(personIndex, person);
+		System.out.println("\nPerson data UPDATE with success");
 	}
 
 }
