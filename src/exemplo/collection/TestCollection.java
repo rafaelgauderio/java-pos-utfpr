@@ -68,10 +68,10 @@ public class TestCollection {
 				if (updatePersonIndex == -1) {
 					read.enterData("\nNo person with this id on the data base. Press <ENTER> to continue...");
 				} else {
-					System.out.println("Inform the new person Id and name:");
-					int newPersonId = Integer.parseInt(read.enterData("Id..: "));
+					System.out.println("Inform the new person name (the id can not be update):");
+					// int newPersonId = Integer.parseInt(read.enterData("Id..: "));
 					String newPersonName = read.enterData("Name..: ");
-					person = new Person(newPersonId, newPersonName);
+					person = new Person(updatePersonId, newPersonName);
 					updatePersonById(updatePersonIndex, person);
 				}
 				break;
@@ -98,10 +98,10 @@ public class TestCollection {
 			personId = Integer.parseInt(read.enterData(
 					"There is already this id on the database. Try a new one diffent from " + personId + ": "));
 			resultFromDataBase = findPersonById(personId);
-						while (resultFromDataBase != -1) {
+			while (resultFromDataBase != -1) {
 				personId = Integer.parseInt(read.enterData(
 						"There is also this id on the database. Try a new one diffente from " + personId + ": "));
-				resultFromDataBase = findPersonById(personId);				
+				resultFromDataBase = findPersonById(personId);
 			}
 			person.setId(personId);
 			person.setName(read.enterData("Id accept, informe the name now.\nName..: "));
