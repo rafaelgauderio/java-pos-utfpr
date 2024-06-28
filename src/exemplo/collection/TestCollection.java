@@ -41,7 +41,12 @@ public class TestCollection {
 				break;
 			case 3:
 				System.out.println("\nConsult Person by id");
-				int personId = Integer.parseInt(read.enterData("Inform person Id to print data: "));
+				int personId = 0;
+				try {
+					personId = Integer.parseInt(read.enterData("Inform person Id to print data: "));
+				} catch (NumberFormatException nfe) {
+					read.enterData("You must informat a integer number!");
+				}
 				int personIndex = findPersonById(personId);
 				if (personIndex == -1) {
 					read.enterData("\nNo person with this id on the data base. Press <ENTER> to continue...");
@@ -52,7 +57,12 @@ public class TestCollection {
 				break;
 			case 4:
 				System.out.println("\nRemove Person by id");
-				int removePersonId = Integer.parseInt(read.enterData("Inform a Person id to remove person: "));
+				int removePersonId = 0;
+				try {
+					removePersonId = Integer.parseInt(read.enterData("Inform a Person id to remove person: "));
+				} catch (NumberFormatException nfe) {
+					read.enterData("You must informat a integer number!");
+				}
 				int removePersonIndex = findPersonById(removePersonId);
 				if (removePersonIndex == -1) {
 					read.enterData("\nNo person with this id on the data base. Press <ENTER> to continue...");
@@ -63,7 +73,13 @@ public class TestCollection {
 				break;
 			case 5:
 				System.out.println("\nUpdate Person by id");
-				int updatePersonId = Integer.parseInt(read.enterData("Inform the Person id to update data: "));
+				int updatePersonId = 0;
+				try {
+					updatePersonId = Integer.parseInt(read.enterData("Inform the Person id to update data: "));
+				} catch (NumberFormatException nfe) {
+					read.enterData("You must informat a integer number!");
+				}
+
 				int updatePersonIndex = findPersonById(updatePersonId);
 				if (updatePersonIndex == -1) {
 					read.enterData("\nNo person with this id on the data base. Press <ENTER> to continue...");
@@ -92,15 +108,29 @@ public class TestCollection {
 
 	public static void insertPerson(Person person) {
 
-		int personId = Integer.parseInt(read.enterData("Informe person id and name.\nId..: "));
+		int personId = 0;
+		try {
+			Integer.parseInt(read.enterData("Informe person id and name.\nId..: "));
+		} catch (NumberFormatException nfe) {
+			read.enterData("You must informat a integer number!");
+		}
 		int resultFromDataBase = findPersonById(personId);
 		if (resultFromDataBase != -1) {
-			personId = Integer.parseInt(read.enterData(
-					"There is already this id on the database. Try a new one diffent from " + personId + ": "));
+			try {
+				personId = Integer.parseInt(read.enterData(
+						"There is already this id on the database. Try a new one diffent from " + personId + ": "));
+			} catch (NumberFormatException nfe) {
+				read.enterData("You must informat a integer number!");
+			}
 			resultFromDataBase = findPersonById(personId);
 			while (resultFromDataBase != -1) {
-				personId = Integer.parseInt(read.enterData(
-						"There is also this id on the database. Try a new one diffente from " + personId + ": "));
+				try {
+
+					personId = Integer.parseInt(read.enterData(
+							"There is also this id on the database. Try a new one diffente from " + personId + ": "));
+				} catch (NumberFormatException nfe) {
+					read.enterData("You must informat a integer number!");
+				}
 				resultFromDataBase = findPersonById(personId);
 			}
 			person.setId(personId);
@@ -155,27 +185,7 @@ public class TestCollection {
 	}
 }
 
-/*
- * 
- * // equal compara ojetos, == compara tipos primitivos
- * System.out.println("Removing informing the Id"); int removeId = 0; try {
- * removeId =
- * (Integer.parseInt(read.enterData("Inform person id do you want to remove:")))
- * ;
- * 
- * } catch (NumberFormatException exception) {
- * System.out.println("Must inform a integer number"); }
- * 
- * for (int i = 0; i < personDataBase.size(); i++) { if (removeId ==
- * personDataBase.get(i).getId()) {
- * personDataBase.remove(personDataBase.get(i)); } else if (removeId !=
- * personDataBase.get(i).getId()) {
- * System.out.println("There is no object with this id on the database!"); } }
- * 
- * System.out.println("\nPrinting object arrayList after exclusion"); for
- * (Person nickname : personDataBase) { System.out.println("Id: " +
- * nickname.getId() + " - Name: " + nickname.getName()); }
- * 
+ /*
  * System.out.println("Removin by index, informing the index");
  * 
  * try { int index =
