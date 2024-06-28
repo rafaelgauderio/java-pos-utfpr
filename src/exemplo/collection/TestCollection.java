@@ -20,8 +20,9 @@ public class TestCollection {
 			System.out.println("2. List all Persons");
 			System.out.println("3. Consult Person by id");
 			System.out.println("4. Remove Person by id");
-			System.out.println("5. Update Person by id");
-			System.out.println("6. Exit");
+			System.out.println("5. Remove Person by index");
+			System.out.println("6. Update Person by id");
+			System.out.println("7. Exit");
 
 			try {
 				option = Integer.parseInt(read.enterData("\nChoose an option between 1 and 6: "));
@@ -45,7 +46,7 @@ public class TestCollection {
 				try {
 					personId = Integer.parseInt(read.enterData("Inform person Id to print data: "));
 				} catch (NumberFormatException nfe) {
-					read.enterData("You must informat a integer number!");
+					read.enterData("You must inform a integer number!");
 				}
 				int personIndex = findPersonById(personId);
 				if (personIndex == -1) {
@@ -61,7 +62,7 @@ public class TestCollection {
 				try {
 					removePersonId = Integer.parseInt(read.enterData("Inform a Person id to remove person: "));
 				} catch (NumberFormatException nfe) {
-					read.enterData("You must informat a integer number!");
+					read.enterData("You must inform a integer number!");
 				}
 				int removePersonIndex = findPersonById(removePersonId);
 				if (removePersonIndex == -1) {
@@ -72,12 +73,31 @@ public class TestCollection {
 
 				break;
 			case 5:
+				System.out.println("Removind Person by index:");
+				int removedIndex = 0;
+				try {
+					removedIndex = Integer.parseInt(read.enterData("Inform person index (must be between 0 and "
+							+ (personDataBase.size() - 1) + ") to remove: "));
+				} catch (NumberFormatException nfe) {
+					read.enterData("You must inform a integer number!");
+				} catch (IndexOutOfBoundsException iobe) {
+					read.enterData("The index must be betwenn 0 and " + (personDataBase.size() - 1));
+				}
+				if (removedIndex >= 0 && removedIndex <= personDataBase.size() - 1) {
+					removePersonById(removedIndex);
+				} else {
+					read.enterData("Index must be between zero and " + (personDataBase.size() -1 )
+							+ ".\nNo person was remove from database. Press <enter>...");
+				}
+				break;
+
+			case 6:
 				System.out.println("\nUpdate Person by id");
 				int updatePersonId = 0;
 				try {
 					updatePersonId = Integer.parseInt(read.enterData("Inform the Person id to update data: "));
 				} catch (NumberFormatException nfe) {
-					read.enterData("You must informat a integer number!");
+					read.enterData("You must inform a integer number!");
 				}
 
 				int updatePersonIndex = findPersonById(updatePersonId);
@@ -91,7 +111,7 @@ public class TestCollection {
 					updatePersonById(updatePersonIndex, person);
 				}
 				break;
-			case 6:
+			case 7:
 				System.out.println("\nReal sure to exit the application? <y/n>");
 				String exit = read.enterData("");
 				if (exit.equalsIgnoreCase("y")) {
@@ -110,17 +130,17 @@ public class TestCollection {
 
 		int personId = 0;
 		try {
-			Integer.parseInt(read.enterData("Informe person id and name.\nId..: "));
+			Integer.parseInt(read.enterData("Inform person id and name.\nId..: "));
 		} catch (NumberFormatException nfe) {
-			read.enterData("You must informat a integer number!");
+			read.enterData("You must inform a integer number!");
 		}
 		int resultFromDataBase = findPersonById(personId);
 		if (resultFromDataBase != -1) {
 			try {
 				personId = Integer.parseInt(read.enterData(
-						"There is already this id on the database. Try a new one diffent from " + personId + ": "));
+						"There is already this id on the database. Try a new one diffrent from " + personId + ": "));
 			} catch (NumberFormatException nfe) {
-				read.enterData("You must informat a integer number!");
+				read.enterData("You must inform a integer number!");
 			}
 			resultFromDataBase = findPersonById(personId);
 			while (resultFromDataBase != -1) {
@@ -129,12 +149,12 @@ public class TestCollection {
 					personId = Integer.parseInt(read.enterData(
 							"There is also this id on the database. Try a new one diffente from " + personId + ": "));
 				} catch (NumberFormatException nfe) {
-					read.enterData("You must informat a integer number!");
+					read.enterData("You must inform a integer number! Press <ENTER>...");
 				}
 				resultFromDataBase = findPersonById(personId);
 			}
 			person.setId(personId);
-			person.setName(read.enterData("Id accept, informe the name now.\nName..: "));
+			person.setName(read.enterData("Id accept, inform the name now.\nName..: "));
 			personDataBase.add(person);
 			System.out.println("Person add with success!");
 		} else {
@@ -185,7 +205,7 @@ public class TestCollection {
 	}
 }
 
- /*
+/*
  * System.out.println("Removin by index, informing the index");
  * 
  * try { int index =
