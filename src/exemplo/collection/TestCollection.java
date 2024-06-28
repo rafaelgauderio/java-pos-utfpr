@@ -35,7 +35,8 @@ public class TestCollection {
 			switch (option) {
 			case 1:
 				System.out.println("\nInsert Person");
-				insertPerson(new Person());
+				person = new Person();
+				insertPerson(person);
 				break;
 			case 2:
 				System.out.println("\nList All Person");
@@ -150,37 +151,39 @@ public class TestCollection {
 
 	public static void insertPerson(Person person) {
 
-		int personId = 0;
 		try {
-			Integer.parseInt(read.enterData("Inform person id and name.\nId..: "));
+			person.setId(Integer.parseInt(read.enterData("Inform person id and name.\nId..: ")));
+
 		} catch (NumberFormatException nfe) {
 			read.enterData("You must inform a integer number!");
 		}
-		int resultFromDataBase = findPersonById(personId);
+		int resultFromDataBase = findPersonById(person.getId());
 		if (resultFromDataBase != -1) {
 			try {
-				personId = Integer.parseInt(read.enterData(
-						"There is already this id on the database. Try a new one diffrent from " + personId + ": "));
+				person.setId(Integer.parseInt(
+						read.enterData("There is already this id on the database. Try a new one diffrent from "
+								+ person.getId() + ": ")));
 			} catch (NumberFormatException nfe) {
 				read.enterData("You must inform a integer number!");
 			}
-			resultFromDataBase = findPersonById(personId);
+			resultFromDataBase = findPersonById(person.getId());
 			while (resultFromDataBase != -1) {
 				try {
 
-					personId = Integer.parseInt(read.enterData(
-							"There is also this id on the database. Try a new one diffente from " + personId + ": "));
+					person.setId(Integer.parseInt(
+							read.enterData("There is also this id on the database. Try a new one diffente from "
+									+ person.getId() + ": ")));
 				} catch (NumberFormatException nfe) {
 					read.enterData("You must inform a integer number! Press <ENTER>...");
 				}
-				resultFromDataBase = findPersonById(personId);
+				resultFromDataBase = findPersonById(person.getId());
 			}
-			person.setId(personId);
+			person.setId(person.getId());
 			person.setName(read.enterData("Id accept, inform the name now.\nName..: "));
 			personDataBase.add(person);
 			System.out.println("Person add with success!");
 		} else {
-			person.setId(personId);
+			person.setId(person.getId());
 			person.setName(read.enterData("Name..: "));
 			personDataBase.add(person);
 			System.out.println("Person add with success!");
