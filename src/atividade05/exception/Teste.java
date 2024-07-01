@@ -1,13 +1,12 @@
 package atividade05.exception;
 
-
 public class Teste {
 
-	private static Leitura input = new Leitura();	
+	private static Leitura input = new Leitura();
 
 	public static void main(String[] args) {
 
-		int opcao = 0;		
+		int opcao = 0;
 		BDVeiculos bdVeiculos = new BDVeiculos();
 
 		do {
@@ -24,22 +23,26 @@ public class Teste {
 
 			{
 			case 1:
-				bdVeiculos.cadastrarVeiculoPasseio(bdVeiculos.getListaPasseio());
+				try {
+					bdVeiculos.cadastrarVeiculoPasseio(bdVeiculos.getListaPasseio());
+				} catch (VeicExistException exception) {
+					
+				}
 				break;
 			case 2:
-				bdVeiculos.cadastrarVeiculoCarga(bdVeiculos.getListaCarga());				
+				bdVeiculos.cadastrarVeiculoCarga(bdVeiculos.getListaCarga());
 				break;
 			case 3:
-				bdVeiculos.imprimirVeiculosPasseio(bdVeiculos.getListaPasseio());			
+				bdVeiculos.imprimirVeiculosPasseio(bdVeiculos.getListaPasseio());
 				break;
 			case 4:
-				bdVeiculos.imprimirVeiculosCarga(bdVeiculos.getListaCarga());				
+				bdVeiculos.imprimirVeiculosCarga(bdVeiculos.getListaCarga());
 				break;
 			case 5:
-				bdVeiculos.imprimirVeiculoPasseioPorPlaca(bdVeiculos.getListaPasseio(),null);				
+				bdVeiculos.imprimirVeiculoPasseioPorPlaca(bdVeiculos.getListaPasseio(), null);
 				break;
 			case 6:
-				bdVeiculos.imprimirVeiculoCargaPorPlaca(bdVeiculos.getListaCarga(),null);
+				bdVeiculos.imprimirVeiculoCargaPorPlaca(bdVeiculos.getListaCarga(), null);
 				break;
 			case 7:
 				System.out.println("\nSISTEMA ENCERRADO");

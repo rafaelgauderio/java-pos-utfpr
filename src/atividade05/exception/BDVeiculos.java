@@ -51,7 +51,7 @@ public class BDVeiculos {
 		return -1;
 	}
 
-	public void cadastrarVeiculoPasseio(Passeio[] vetorPasseio) {
+	public void cadastrarVeiculoPasseio(Passeio[] vetorPasseio) throws VeicExistException {
 
 		Leitura input = new Leitura();
 
@@ -69,10 +69,7 @@ public class BDVeiculos {
 			for (int index = 0; index < vetorPasseio.length; index++) {
 				if (vetorPasseio[index] != null) {
 					if (vetorPasseio[index].getPlaca().equalsIgnoreCase(placaTentativa)) {
-						System.out.println("==================ATENÇÃO====================\n"
-								+ "Já existe um veículo de passeio com a placa. Retornando ao menu principal ");
-						return;
-
+						throw new VeicExistException();
 					}
 				} else {
 					p1.setPlaca(placaTentativa);
