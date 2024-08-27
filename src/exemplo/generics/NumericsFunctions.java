@@ -25,5 +25,20 @@ public class NumericsFunctions<T extends Number> {
 		return number.doubleValue() / number.intValue();
 	}
 	
+	// verificar se o valor absoluto de 2 objetos são iguais
+	public boolean absoluteEquals (NumericsFunctions<?> object) {
+		if(Math.abs(number.doubleValue()) == Math.abs(object.number.doubleValue())) {
+			return true;
+		}
+		return false;
+	}
+	
+	public void absoluteEqualsPrint(NumericsFunctions<?> object) {
+		if(this.absoluteEquals(object)) {
+			System.out.println("Absolute values are equal!");
+		} else {
+			System.out.println("Absolutes values are different!");
+		}
+	}
 
 }

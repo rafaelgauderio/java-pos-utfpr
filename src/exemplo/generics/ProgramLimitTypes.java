@@ -1,6 +1,6 @@
 package exemplo.generics;
 
-public class Program02 {
+public class ProgramLimitTypes {
 
 	public static void main(String[] args) {
 		
