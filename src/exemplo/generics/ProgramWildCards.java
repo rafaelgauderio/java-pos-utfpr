@@ -13,12 +13,11 @@ public class ProgramWildCards {
 		NumericsFunctions<Double> doubleObj = new NumericsFunctions<Double>(7.1);
 		NumericsFunctions<Double> doubleObjZero = new NumericsFunctions<Double>(7.0);
 		
-		integerObj.absoluteEqualsPrint(longObj); // true
-		integerObj.absoluteEqualsPrint(doubleObjZero); //true
-		integerObj.absoluteEqualsPrint(doubleObj); //false		
-		doubleObj.absoluteEqualsPrint(longObj); // false
-		
-		
+		// verificar se os valores absolutos são iguais
+		integerObj.absoluteEqualsPrint(longObj); // true        7   == -7L
+		integerObj.absoluteEqualsPrint(doubleObjZero); //true   7   == 7.0
+		integerObj.absoluteEqualsPrint(doubleObj); //false		7   == 7.1
+		doubleObj.absoluteEqualsPrint(longObj); // false		7.1 == 7.0
 	}
 
 }
