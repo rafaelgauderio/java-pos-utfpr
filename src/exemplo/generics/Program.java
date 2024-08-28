@@ -13,7 +13,8 @@ public class Program {
 				+ "\tParâmetro do tipo T é substituido pelo objeto do tipo real quando um objeto do tipo da classe for instanciado.\n"
 				+ "\tGenerics só funcinam com tipos de referência, não.\n"
 				+ "\tTipos Genéricos diferem de acordo com seus tipos de argumento.\n"
-				+ "\tTipos limitados: os parâmetros de tipo podem ser substituidos por qualquer tipo de classe.\n");
+				+ "\tTipos limitados: os parâmetros de tipo podem ser substituidos por qualquer tipo de classe.\n"
+				+ "\tInterfaces também podem ser declarados do tipo generics.\n");
 		
 		Generics <Integer> integerObject;
 		Generics <Double> doubleObject = new Generics<Double>(3.1415);
