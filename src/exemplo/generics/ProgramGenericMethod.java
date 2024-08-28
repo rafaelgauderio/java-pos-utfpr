@@ -30,16 +30,15 @@ public class ProgramGenericMethod {
 		Double[] array3 = { 2.1, 2.2, 2.3, 2.5 };
 		Double[] array4 = { 2.1, 2.2, 2.3, 2.4, 2.5, 2.6 };
 		Double[] array5 = { 2.1, 2.2, 2.3, 2.4, 2.5, 2.60 };
-		Integer [] arrayInt = {1,2,3,4};
-		
+		Integer[] arrayInt = { 1, 2, 3, 4 };
+
 		printVerificationArrayEquals(array1, array2); // equals
 		printVerificationArrayEquals(array1, array3); // not equals
 		printVerificationArrayEquals(array1, array4); // not equals
 		printVerificationArrayEquals(array4, array5); // equals
-		
+
 		// não consegue comparar um array de Double com um de Integer
-		//printVerificationArrayEquals(array1, arrayInt);
-		
+		// printVerificationArrayEquals(array1, arrayInt);
 
 	}
 
