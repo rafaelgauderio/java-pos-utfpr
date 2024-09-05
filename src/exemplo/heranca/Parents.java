@@ -1,4 +1,4 @@
-package exemplo01.heranca;
+package exemplo.heranca;
 
 public abstract class Parents {
 
