@@ -12,9 +12,11 @@ public class Generics <T>{
 		return object;
 	}
 
+	
 	public void setObject(T object) {
 		this.object = object;
-	}
+	}    
+	
 	
 	public void showType () {
 		System.out.println("Type of T is " + object.getClass().getName());

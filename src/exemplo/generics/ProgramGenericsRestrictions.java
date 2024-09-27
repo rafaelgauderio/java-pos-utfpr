@@ -38,7 +38,7 @@ public class ProgramGenericsRestrictions {
 	public static void main(String[] args) {
 
 		System.out.println("\nRestrições a tipos Generics.\n" + "\tParâmetros de tipos não podem ser instanciados\n"
-				+ "\tUm mebrom static não pode usar um parâmetro do tipo declaro pela classe externa");
+				+ "\tUm mebro static não pode usar um parâmetro do tipo declaro pela classe externa");
 
 		BigDecimal bd = new BigDecimal("17.4");
 		Double array[] = { 17.1, 17.2, 17.3, bd.doubleValue() };

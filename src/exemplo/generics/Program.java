@@ -11,11 +11,12 @@ public class Program {
 				+ "\tEvita ficar fazendo casting a todo momento.\n"
 				+ "\tPropriciam segurança, porque tornam as coerções automática e implícitas.\n"
 				+ "\tParâmetro do tipo T é substituido pelo objeto do tipo real quando um objeto do tipo da classe for instanciado.\n"
-				+ "\tGenerics só funcinam com tipos de referência, não.\n"
+				+ "\tGenerics só funcinam com tipos de referência, não funcionam com tipo primitivos.\n"
 				+ "\tTipos Genéricos diferem de acordo com seus tipos de argumento.\n"
 				+ "\tTipos limitados: os parâmetros de tipo podem ser substituidos por qualquer tipo de classe.\n"
 				+ "\tInterfaces também podem ser declarados do tipo generics.\n");
 		
+		//Generics X = new Generics(); // não pode ser instanciado assim, tem que deficinir o tipo
 		Generics <Integer> integerObject;
 		Generics <Double> doubleObject = new Generics<Double>(3.1415);
 		Generics <String> stringObject = new Generics<String>("Rafael de Luca");
@@ -36,7 +37,8 @@ public class Program {
 		System.out.println("String value: "+ stringObject.getObject());
 		
 		System.out.println("\nGenerics com 2 parâmetros");
-		GenericsTwoParams<String, Integer> genericsTwo = new GenericsTwoParams<>("Rafael de Luca", 41);
+		GenericsTwoParams<String, Integer> genericsTwo = new GenericsTwoParams<String, Integer>("Rafael de Luca", 41);
+		GenericsTwoParams<String, Integer> genericsTwoSimplified = new GenericsTwoParams<>("Rafael de Luca", 41);
 		
 		String nome = genericsTwo.getObject01();
 		int idade = genericsTwo.getObject02();
